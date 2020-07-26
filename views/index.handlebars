@@ -1,0 +1,63 @@
+<section class="hero is-primary is-small">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">
+        Talk through words
+      </h1>
+      <h2 class="subtitle">
+        For the socially incapable
+      </h2>
+    </div>
+  </div>
+</section>
+
+<form class="create-form column">
+
+<div class="field">
+  <label class="label" for="name">Name</label>
+  <div class="control">
+    <input class="input" type="text" name="name" id="name">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Message</label>
+  <div class="control">
+    <textarea class="textarea" placeholder="Your Post" id="message" name="message"></textarea>
+  </div>
+</div>
+
+  <button type="submit" id="submit" class="button is-primary">Share</button>
+</form>
+
+
+{{#each post}}
+<article class="media container my-2" data-id="{{ this.id }}">
+  <figure class="media-left">
+    <p class="image is-64x64">
+      <img src="https://bulma.io/images/placeholders/128x128.png">
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong>{{ this.name }}</strong> <small>{{this.time}}</small>
+        <br>
+        {{this.message}}
+      </p>
+    </div>
+    <nav class="level is-mobile">
+      <div class="level-left">
+        <a class="level-item editBtn" data-id="{{ this.id }}">
+          <span class="icon is-small"><i class="fas fa-edit"></i></span>
+        </a>
+        <a class="level-item delete-post"  data-id="{{ this.id }}">
+          <span class="icon is-small"><i class="fas fa-trash-alt"></i></span>
+        </a>
+      </div>
+    </nav>
+  </div>
+</article>
+<button class="button is-primary edit is-hidden" data-id="{{ this.id }}">Update</button>
+<button class="button is-danger cancelBtn is-hidden" data-id="{{ this.id }}">Cancel</button>
+{{/each}}
