@@ -50,4 +50,5 @@ router.put("/api/posts/:id", (req, res) => {
         }
     })
 })
+
 module.exports = router;
