@@ -3,7 +3,7 @@ var express = require("express");
 var router = express.Router();
 
 var message = require("../models/message.js");
-const connection = require("../config/connection.js");
+
 
 router.get("/", (req, res) => {
     message.all((data) => {
